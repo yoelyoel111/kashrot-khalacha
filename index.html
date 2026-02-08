@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>כשרות כהלכה</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">כשרות כהלכה</a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">דף הבית</a>
+        <a href="repository.html">מאגר השאלות</a>
+        <a href="ask.html">שאל שאלה</a>
+        <a href="admin.html">ניהול</a>
+      </nav>
+      <div class="header-actions">
+        <a href="ask.html" class="btn btn-primary">שאל שאלה</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-title-wrapper">
+              <span class="hero-subtitle">שאלות ותשובות בענייני כשרות מאת</span>
+              <h1 class="hero-rabbi-name">הרב מנחם בורנשטיין <span class="shlita">שליט"א</span></h1>
+            </div>
+            <p>מאגר גדול בנושאי כשרות, בדיקת מוצרים, והלכות יומיומיות במטבח היהודי.</p> והלכות יומיומיות במטבח היהודי.</p>
+            <div class="hero-cta">
+              <a href="ask.html" class="btn btn-primary">שאל שאלה</a>
+              <a href="repository.html" class="btn btn-outline">עיין במאגר השאלות</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-banner">
+              <img src="baner.png" alt="באנר שאלות ותשובות בכשרות">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">שאלות אחרונות</h2>
+        <div id="recent-questions" class="question-list">
+          <!-- Questions will be loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">קטגוריות פופולריות</h2>
+        <div id="category-grid" class="category-grid">
+          <!-- Categories will be loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>כשרות כהלכה - אתר לבירור שאלות כשרות והלכות</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/app-v2.js?v=20260208015"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+      loadRecentQuestions();
+      loadCategories();
+    });
+  </script>
+</body>
+</html>

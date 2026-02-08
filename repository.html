@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מאגר השאלות - כשרות כהלכה</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">כשרות כהלכה</a>
+      <nav class="nav-links">
+        <a href="index.html">דף הבית</a>
+        <a href="repository.html" class="active">מאגר השאלות</a>
+        <a href="ask.html">שאל שאלה</a>
+        <a href="admin.html">כניסה לעדכון מאגר</a>
+      </nav>
+      <div class="header-actions">
+        <a href="ask.html" class="btn btn-primary">שאל שאלה</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">מאגר השאלות</h2>
+        
+        <div class="filter-panel">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="filter-product">שם מוצר</label>
+              <input type="text" id="filter-product" placeholder="חפש מוצר...">
+            </div>
+            <div class="form-field">
+              <label for="filter-company">חברה</label>
+              <input type="text" id="filter-company" placeholder="חפש חברה...">
+            </div>
+            <div class="form-field">
+              <label for="filter-category">קטגוריה</label>
+              <select id="filter-category">
+                <option value="">הכל</option>
+                <option value="חלב">חלב</option>
+                <option value="בשר">בשר</option>
+                <option value="פרווה">פרווה</option>
+                <option value="תוספי מזון">תוספי מזון</option>
+                <option value="משקאות">משקאות</option>
+                <option value="מאפים">מאפים</option>
+                <option value="חומרי גלם">חומרי גלם</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="filter-country">ארץ ייצור</label>
+              <select id="filter-country">
+                <option value="">הכל</option>
+                <option value="ישראל">ישראל</option>
+                <option value="ארצות הברית">ארצות הברית</option>
+                <option value="אירופה">אירופה</option>
+                <option value="אסיה">אסיה</option>
+                <option value="אחר">אחר</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="filter-sku">מק"ט</label>
+              <input type="text" id="filter-sku" placeholder="חפש מק"ט...">
+            </div>
+            <div class="form-field">
+              <label for="filter-hechsher">כשרות</label>
+              <input type="text" id="filter-hechsher" placeholder="חפש כשרות...">
+            </div>
+            <div class="form-field">
+              <label for="filter-text">חיפוש חופשי</label>
+              <input type="text" id="filter-text" placeholder="חפש בשאלה או תשובה...">
+            </div>
+          </div>
+          <div class="filter-actions">
+            <button id="apply-filters" class="btn btn-primary">חפש</button>
+            <button id="clear-filters" class="btn btn-ghost">נקה סינון</button>
+          </div>
+        </div>
+
+        <div id="questions-list" class="question-list">
+          <!-- Questions will be loaded here -->
+        </div>
+        
+        <div id="no-results" class="empty-state" style="display: none;">
+          לא נמצאו שאלות התואמות את החיפוש
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>כשרות כהלכה - אתר לבירור שאלות כשרות והלכות</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app-v2.js?v=20260208016"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      loadQuestionsList();
+      initFilters();
+      
+      // Initialize autocomplete for filter hechsher field
+      initHechsherAutocomplete('filter-hechsher');
+      
+      // Check for category from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const category = urlParams.get('category');
+      if (category) {
+        document.getElementById('filter-category').value = category;
+        applyFilters();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שאל שאלה - כשרות כהלכה</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">כשרות כהלכה</a>
+      <nav class="nav-links">
+        <a href="index.html">דף הבית</a>
+        <a href="repository.html">מאגר השאלות</a>
+        <a href="ask.html" class="active">שאל שאלה</a>
+        <a href="admin.html">כניסה לעדכון מאגר</a>
+      </nav>
+      <div class="header-actions">
+        <a href="repository.html" class="btn btn-outline">עיין במאגר</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">שאל שאלה</h2>
+        
+        <div class="form-panel fade-up">
+          <form id="question-form">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="product">שם המוצר *</label>
+                <input type="text" id="product" name="product" required>
+              </div>
+              
+              <div class="form-field">
+                <label for="company">שם החברה המייצרת *</label>
+                <input type="text" id="company" name="company" required>
+              </div>
+              
+              <div class="form-field">
+                <label for="category">קטגוריית שאלה *</label>
+                <select id="category" name="category" required>
+                  <option value="">בחר קטגוריה</option>
+                  <option value="חלב">חלב</option>
+                  <option value="בשר">בשר</option>
+                  <option value="פרווה">פרווה</option>
+                  <option value="תוספי מזון">תוספי מזון</option>
+                  <option value="משקאות">משקאות</option>
+                  <option value="מאפים">מאפים</option>
+                  <option value="חומרי גלם">חומרי גלם</option>
+                  <option value="אחר">אחר</option>
+                </select>
+              </div>
+              
+              <div class="form-field">
+                <label for="country">ארץ ייצור</label>
+                <select id="country" name="country">
+                  <option value="">בחר ארץ</option>
+                  <option value="ישראל">ישראל</option>
+                  <option value="ארצות הברית">ארצות הברית</option>
+                  <option value="אירופה">אירופה</option>
+                  <option value="אסיה">אסיה</option>
+                  <option value="אחר">אחר</option>
+                </select>
+              </div>
+              
+              <div class="form-field">
+                <label for="sku">מק"ט / ברקוד</label>
+                <input type="text" id="sku" name="sku">
+              </div>
+              
+            <div class="form-field">
+              <label for="hechsher">כשרות</label>
+              <input type="text" id="hechsher" name="hechsher" placeholder="הקלד לחיפוש או בחר מהרשימה..." autocomplete="off">
+            </div>
+            </div>
+            
+            <div class="form-field" style="margin-top: 1.2rem;">
+              <label for="question">פירוט השאלה</label>
+              <textarea id="question" name="question" placeholder="פרט את שאלתך כאן..."></textarea>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">שלח לבדיקה</button>
+              <a href="index.html" class="btn btn-ghost">ביטול</a>
+            </div>
+            
+            <div id="form-message" class="form-message">
+              שאלתך התקבלה ותיבדק על ידי הרב. לאחר אישור תופיע באתר.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>כשרות כהלכה - אתר לבירור שאלות כשרות והלכות</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app-v2.js?v=1707318700"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      initQuestionForm();
+    });
+  </script>
+</body>
+</html>

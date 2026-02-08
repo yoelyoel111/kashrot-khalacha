@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>כניסה לעדכון מאגר - כשרות כהלכה</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">כשרות כהלכה</a>
+      <nav class="nav-links">
+        <a href="index.html">דף הבית</a>
+        <a href="repository.html">מאגר השאלות</a>
+        <a href="ask.html">שאל שאלה</a>
+        <a href="admin.html" class="active">כניסה לעדכון מאגר</a>
+      </nav>
+      <div class="header-actions">
+        <span style="color: var(--brown-dark); font-weight: 600;">עדכון מאגר</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">כניסה לעדכון מאגר</h2>
+        
+        <div class="admin-wrapper">
+          <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="pending" onclick="switchTab('pending')">שאלות ממתינות</button>
+            <button class="tab-btn" data-tab="approved" onclick="switchTab('approved')">שאלות שאושרו</button>
+            <button class="tab-btn" data-tab="rejected" onclick="switchTab('rejected')">שאלות שנדחו</button>
+          </div>
+          
+          <div id="admin-content">
+            <!-- Content will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast notification -->
+  <div id="admin-toast" class="admin-toast"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>כשרות כהלכה - אתר לבירור שאלות כשרות והלכות</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app-v2.js?v=1707318700"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Simple password protection
+      const password = prompt('הזן סיסמת מנהל:');
+      if (password !== 'admin123') {
+        alert('סיסמה שגויה');
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      loadAdminTab('pending');
+    });
+  </script>
+</body>
+</html>
